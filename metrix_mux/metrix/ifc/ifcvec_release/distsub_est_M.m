@@ -1,5 +1,4 @@
 function [g_all, vv_all]=vifsub_est_M(org,dist, subbands, M); 
-
 % uses convolution for determining the parameters of the distortion channel
 % Called by vifvec.m
 

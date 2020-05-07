@@ -77,7 +77,8 @@ org=ind2wtree(pyr,pind); % convert to cell array
 dist=ind2wtree(pyr,pind);
 
 % calculate the parameters of the distortion channel
-[g_all,vv_all]=distsub_est_m(org,dist,subbands,M);
+% [g_all,vv_all]=distsub_est_m(org,dist,subbands,M);
+[g_all,vv_all]=distsub_est_M(org,dist,subbands,M);
 
 % calculate the parameters of the reference image
 [ssarr, larr, cuarr]=refparams_vecgsm(org,subbands,M);
@@ -98,7 +99,7 @@ for i=1:length(subbands)
     g=ggtemp{sub};
     vv=vvtemp{sub};
     ss=ssarr{sub};
-    lambda = larr(sub,:);, 
+    lambda = larr(sub,:);
     cu=cuarr{sub};
 
     % how many eigenvalues to sum over. default is 1.

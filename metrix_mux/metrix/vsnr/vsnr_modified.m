@@ -117,7 +117,7 @@ if (src_img ~= -1)
   % default viewing parameters and DWT options
   if (nargin < 4 | ~isstruct(viewing_params))
     %%%MM%%%
-    %%%MM%%% [BEGIN CHANGE]
+    %%%MM%%% [BEGIN CHANGE] 
     %%%MM%%%
     %%%MM%%% add a semi-colon after the 'ok' symbol
     %%%MM%%%

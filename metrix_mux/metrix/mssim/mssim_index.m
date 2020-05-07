@@ -66,26 +66,22 @@ function [mssim, comp, detail] = mssim_index(img1, img2, nlevs,K,lpf)
 %           [mean, contrast, cross-correlation]
 %   detail - vector containing mssim components at EACH scale (same
 %   structure as comp)
+if ~exist('nlevs','var')
+    nlevs = 5;
+end
 
-nlevs = 5;
-
-try
-    K = K;
-catch
-    % Default SSIM parameters (assumes L=255)
+if ~exist('K','var')
     K = [0.01 0.03];
 end
 
-try
-    lpf = lpf;
-catch
+if ~exist('lpf','var')
     % Use Analysis Low Pass filter from Biorthogonal 9/7 Wavelet
     lod = [0.037828455507260; -0.023849465019560;  -0.110624404418440; ...
         0.377402855612830; 0.852698679008890;   0.377402855612830;  ...
         -0.110624404418440; -0.023849465019560; 0.037828455507260];
     lpf = lod*lod';
     lpf = lpf/sum(lpf(:));
-end
+end 
 
 img1 = double(img1);
 img2 = double(img2);

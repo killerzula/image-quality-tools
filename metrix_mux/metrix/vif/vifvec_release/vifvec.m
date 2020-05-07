@@ -79,7 +79,8 @@ org=ind2wtree(pyr,pind); % convert to cell array
 dist=ind2wtree(pyr,pind);
 
 % calculate the parameters of the distortion channel
-[g_all,vv_all]=vifsub_est_m(org,dist,subbands,M);
+% [g_all,vv_all]=vifsub_est_m(org,dist,subbands,M);
+[g_all,vv_all]=vifsub_est_M(org,dist,subbands,M);
 
 % calculate the parameters of the reference image
 [ssarr, larr, cuarr]=refparams_vecgsm(org,subbands,M);

@@ -43,9 +43,8 @@ function data = dwt2d(data,nlev,mode)
 %%%
 %%% pick the decomposition mode
 %%%
-try 
-    mode = mode;
-catch
+
+if ~exist('mode','var')
     mode = '97';
 end
 
@@ -54,7 +53,6 @@ end
 %%%
 if mode == '97'    
     [lod,hid,lor,hir] = bior97;
-    
 else
     [lod,hid,lor,hir] = bior53;    
 end
@@ -86,7 +84,7 @@ end
 %%%
 function [data] = conv_row_wfilters_down(data,lo_filt,hi_filt)
 
-[H,W] = size(data);
+[H,~] = size(data);
 
 N = length(lo_filt)-1;
 L = N/2;
